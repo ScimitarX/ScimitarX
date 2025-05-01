@@ -1,7 +1,7 @@
 
 # 👋 Hi, I’m Atharv Teg Rattan (Github: ScimitarX)
 
-Aspiring AI undergraduate student with a passion for using artificial intelligence to solve real-world problems. I'm currently applying to the Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) and have been building hands-on projects in Python to deepen my understanding of machine learning, natural language processing, and automation.
+Aspiring AI undergraduate student with a passion for using artificial intelligence to solve real-world problems. I have been building hands-on projects in Python to deepen my understanding of machine learning, natural language processing, and automation.
 
 ## 🌱 My Journey So Far
 
