@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About · Atharv Teg Rattan</title>
+
+  <!-- Base layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.min.css">
+
+<style>
+  /* ===== THEME (dark blue bg, white headings, pastel-blue text) ===== */
+  :root{
+    --navy: #0a1a2f;        /* deep / dark blue */
+    --ink:  #cfe3ff;        /* soft pastel blue for body text */
+    --ink-2:#a9ccff;        /* slightly stronger pastel blue (links, accents) */
+    --white:#ffffff;
+    --rule: rgba(255,255,255,.18);
+  }
+
+  /* Kill any external backgrounds; ensure ONE color top-to-bottom */
+  html, body { height: 100%; background: var(--navy) !important; }
+  body{
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.45;
+  }
+  .container, .container-fluid, header, main, footer { background: transparent !important; }
+
+  /* Headings are white; body text is pastel blue */
+  h1, h2, h3, h4 { color: var(--white); letter-spacing: .2px; margin-bottom: .4rem; }
+  p, li, small, a { color: var(--ink); }
+  a { color: var(--ink-2); text-decoration: underline; }
+
+  /* Navigation on dark bg */
+  nav.container-fluid a { color: var(--ink-2) !important; }
+  nav.container-fluid a[aria-current="page"] { text-decoration: underline; }
+
+  /* Page spacing */
+  header.container{ padding-top: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--rule); }
+  main.container{ padding-block: 1rem 3rem; }
+
+  /* Two-column rows with a ready image slot */
+  .item{
+    display: grid;
+    grid-template-columns: 1.35fr .9fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .item:first-of-type{ border-top: 0; }
+  @media (max-width: 900px){ .item{ grid-template-columns: 1fr; } }
+
+  /* Placeholder box (shows when no image yet) */
+  .img-slot{
+    min-height: 120px;
+    border: 2px dashed rgba(255,255,255,.35);
+    border-radius: 12px;
+    background: rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    color: rgba(255,255,255,.7); font-size:.9rem; padding:.75rem;
+  }
+
+  .bullets li{ margin-bottom:.35rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.55rem; }
+  .chip{
+    color: var(--navy);
+    background: var(--ink);
+    border-radius: 999px;
+    padding:.28rem .6rem; font-size:.85rem;
+  }
+
+  footer small { color: var(--ink); }
+
+  /* ===== Step 2: UNIFORM IMAGE STYLING (applies to any <img> placed inside .img-slot) ===== */
+  .img-slot img{
+    width: 100%;
+    height: 230px;            /* makes all images appear the same height */
+    object-fit: cover;        /* crops edges while keeping proportions */
+    border-radius: 15px;      /* soft edges */
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    display:block;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .img-slot img:hover{
+    transform: scale(1.04);
+    box-shadow: 0 8px 25px rgba(255,255,255,.25);
+  }
+
+  /* Optional: when an image is present, hide the dashed look behind it */
+  .img-slot:has(img){
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+</style>
+
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="container-fluid">
+    <ul><li><strong style="color:var(--white)">Atharv</strong></li></ul>
+    <ul>
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="about.html" aria-current="page">🔎About</a></li>
+      <li><a href="projects.html">🤖Projects</a></li>
+      <li><a href="art.html">🎨Art</a></li>
+      <li><a href="contact.html">📞Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="container">
+    <h1>Hi, I’m Atharv.</h1>
+    <p>
+      I work at the intersection of AI, entrepreneurship, and design. My focus is on building
+      practical systems that improve how people work and learn, with a clear emphasis on responsible use.
+    </p>
+    <div class="chips">
+      <span class="chip">FedEx/JA ITC — India National Champion ’24</span>
+      <span class="chip">APAC Finalist (Singapore)</span>
+      <span class="chip">IB Diploma ’25</span>
+      <span class="chip">SAT 1440</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- QUICK FACTS -->
+    <section class="item">
+      <div>
+        <h2>Quick Facts</h2>
+        <ul class="bullets">
+          <li><strong>Email:</strong> athatvteg@gmail.com</li>
+          <li><strong>GitHub:</strong> github.com/ScimitarX</li>
+          <li><strong>Location:</strong> Mohali, Punjab, India</li>
+          <li><strong>Languages:</strong> English (Fluent), Hindi (Fluent), French (Intermediate)</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about1.jpg" alt="Atharv headshot">
+</div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="item">
+      <div>
+        <h2>Education</h2>
+        <p><strong>International Baccalaureate Diploma Programme</strong> — Strawberry Fields High School, Chandigarh (2023–2025).</p>
+        <ul class="bullets">
+          <li>Subjects: Business Management, Mathematics: Applications & Interpretation, Computer Science, English Literature, French B, Economics</li>
+          <li>Predicted total: 31 IB points</li>
+          <li>SAT: 1440 (ERW 720, Math 720)</li>
+          <li>Extended Essay: impact of the OpenAI–Microsoft partnership on AI innovation ecosystems</li>
+          <li>TOK Exhibition: analysis with artifacts like the Voyager Golden Record and hieroglyphics</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about2.jpg" alt="Academic photo or certificate">
+</div>
+    </section>
+
+    <!-- LEADERSHIP & ENTREPRENEURSHIP -->
+    <section class="item">
+      <div>
+        <h2>Leadership & Entrepreneurship</h2>
+        <ul class="bullets">
+          <li><strong>FedEx/JA International Trade Challenge — India National Champion (2024)</strong>; APAC Finalist (Singapore).</li>
+          <li>Founder & Secretary, Entrepreneurship Club — organized school Shark Tank events and cross-disciplinary initiatives.</li>
+          <li>CashCare initiative — financial-literacy outreach; presented at the Harvard Youth Leadership Conference (India).</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about3.jpg" alt="Leadership or entrepreneurship moment">
+</div>
+    </section>
+
+    <!-- PROJECTS & RESEARCH -->
+    <section class="item">
+      <div>
+        <h2>Projects & Research</h2>
+        <ul class="bullets">
+          <li><strong>AI in Newsrooms (Mentorship, 2025):</strong> workflows for summarization, video upscaling, and synthetic voice; responsible adoption.</li>
+          <li><strong>EMG-Controlled Robotic Hand:</strong> Arduino + EMG sensors with origami-inspired mechanics.</li>
+          <li><strong>Fake-News Detector:</strong> LSTM-based classifier for article credibility.</li>
+          <li><strong>Desktop Gardening Assistant:</strong> Tkinter + SQLite productivity tool.</li>
+          <li><strong>Python Tools for News:</strong> scraping, summarization, sentiment analysis.</li>
+          <li><strong>Smart-Home Automations:</strong> Alexa routines and sensor integrations.</li>
+        </ul>
+        <p>See <a href="projects.html">Projects</a> for short write-ups and screenshots.</p>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about4.jpg" alt="Project image">
+</div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="item">
+      <div>
+        <h2>Skills</h2>
+        <ul class="bullets">
+          <li><strong>Programming:</strong> Java; Python; Python for Arduino</li>
+          <li><strong>AI & Automation:</strong> LLM tooling; GPT APIs; workflow automation</li>
+          <li><strong>Hardware:</strong> Arduino prototyping; EMG sensors</li>
+          <li><strong>Research & Writing:</strong> structured analysis; documentation</li>
+          <li><strong>Communication:</strong> presentations, pitching, collaboration</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about5.jpg" alt="Skills demonstration">
+</div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="item">
+      <div>
+        <h2>Awards & Achievements</h2>
+        <ul class="bullets">
+          <li>FedEx/JA ITC — India National Champion (2024); APAC Finalist (2024)</li>
+          <li>Intra-school Shark Tank — 1st place; Communique Business Competition — team winner</li>
+          <li>World Robotics Olympiad — regional winner; national finalist; FLL participant</li>
+          <li>School Mathematics Quiz — 1st place</li>
+          <li>Internships: NetSolutions (2023), Netsmartz (2024) — UI/UX, SaaS, applied AI tools</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about6.jpg" alt="Award photo">
+</div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="item">
+      <div>
+        <h2>Interests</h2>
+        <ul class="bullets">
+          <li>Fine-tipped pen sketches and digital studies</li>
+          <li>Guitar (acoustic and electric)</li>
+          <li>Football and basketball</li>
+        </ul>
+      </div>
+      <div class="img-slot">
+  <img src="assets/images/about/about7.jpg" alt="Interest photo">
+</div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© 2025 Atharv Teg Rattan</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects · Atharv Teg Rattan</title>
+
+  <!-- Base layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.min.css">
+
+  <style>
+    /* ===== Theme & Corkboard ===== */
+    :root{
+      --navy:#0a1a2f;
+      --soft:#cfe3ff;
+      --white:#fff;
+      --cork:#d7aa73;
+    }
+
+    body{
+      margin:0; min-height:100vh; color:var(--navy);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #cda774; /* fallback */
+      /* subtle cork texture using layered gradients; works without any image */
+      background-image:
+        radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.08), rgba(0,0,0,.03));
+      background-size: 6px 6px, 10px 10px, 100% 100%;
+      background-position: 0 0, 1px 2px, 0 0;
+    }
+
+    /* Optional: if you add your own board image at assets/images/projects/corkboard.jpg it will override */
+    body.has-cork {
+      background: url("assets/images/projects/corkboard.jpg") center/cover fixed no-repeat;
+    }
+
+    nav.container-fluid a{ color:#1746ff !important; }
+    nav.container-fluid a:hover{ color:#001aff !important; }
+
+    /* ===== Board frame ===== */
+    .board-wrap{
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border: 18px solid #c79b67;               /* wood frame */
+      border-radius: 18px;
+      background: transparent;
+      box-shadow: 0 14px 40px rgba(0,0,0,.25);
+    }
+
+    /* ===== Sticky grid ===== */
+    .board{
+      display:grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      align-items: start;
+    }
+
+    /* ===== Single sticky note ===== */
+    .note{
+      position:relative;
+      padding: 1rem 1rem 1.1rem;
+      min-height: 220px;
+      background: #fff8b3;             /* default yellow */
+      border-radius: 10px;
+      box-shadow:
+         0 10px 20px rgba(0,0,0,.25),
+         inset 0 0 0 1px rgba(0,0,0,.06);
+      transform: rotate(-.7deg);
+    }
+    .note:nth-child(2){ background:#ffd8d8; transform: rotate(.9deg);}     /* soft red */
+    .note:nth-child(3){ background:#d6f2ff; transform: rotate(-.4deg);}    /* sky */
+    .note:nth-child(4){ background:#dcf7d8; transform: rotate(.6deg);}     /* mint */
+    .note:nth-child(5){ background:#f3e0ff; transform: rotate(-.9deg);}    /* lilac */
+    .note:nth-child(6){ background:#ffe7c7; transform: rotate(.3deg);}     /* peach */
+    .note:nth-child(7){ background:#e6f0ff; transform: rotate(-.2deg);}    /* powder */
+
+    /* paper texture */
+    .note::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(0,0,0,.06));
+      border-radius:10px;
+      pointer-events:none;
+    }
+
+    /* ===== Push pin ===== */
+    .pin{
+      position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+      width:18px; height:18px; border-radius:50%;
+      background:#e63946; box-shadow: 0 3px 0 rgba(0,0,0,.25);
+      z-index:2;
+    }
+    .pin::before{
+      content:""; position:absolute; left:50%; top:16px;
+      width:2px; height:18px; background:#7a4a2a; transform:translateX(-50%);
+      box-shadow:0 1px 0 rgba(255,255,255,.4) inset;
+    }
+    .pin::after{
+      content:""; position:absolute; inset:-8px -12px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,.18), transparent 60%);
+      border-radius:50%;
+      z-index:-1; filter: blur(2px);
+    }
+
+    /* ===== Note content ===== */
+    .note h3{
+      margin: .2rem 0 .4rem;
+      font-size: 1.15rem;
+      line-height: 1.15;
+      color:#111;
+    }
+    .note p{
+      margin:0;
+      color:#2b2b2b;
+      font-size:.95rem;
+    }
+    .note .more{
+      display:inline-block; margin-top:.6rem;
+      font-size:.9rem; color:#1a1a1a; text-decoration: underline;
+    }
+
+    /* collapsible details inside a note */
+    details{ margin-top:.5rem; }
+    details summary{ cursor:pointer; font-weight:600; color:#1a1a1a; list-style:none; }
+    details[open]{ background:rgba(0,0,0,.03); border-radius:8px; padding:.35rem .5rem; }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="container-fluid">
+    <ul><li><strong>Atharv</strong></li></ul>
+    <ul>
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="about.html">🔎About</a></li>
+      <li><a href="projects.html" aria-current="page">🤖Projects</a></li>
+      <li><a href="art.html">🎨Art</a></li>
+      <li><a href="contact.html">📞Contact</a></li>
+    </ul>
+  </nav>
+
+ <!-- PAGE HEADING -->
+  <header class="container" style="text-align:center; margin-top:2rem;">
+    <h1 style="
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: #ffffff;
+        text-shadow: 0 4px 14px rgba(0,0,0,0.6);
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;">
+      ALL MY PROJECTS!
+    </h1>
+  </header>
+
+  <!-- BOARD -->
+  <main class="board-wrap">
+    <div class="board">
+      <!-- 1) AI in Newsrooms -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>AI in Newsrooms (Mentorship, 2025)</h3>
+        <p>Month-long study at <em>The Indian Express</em> on responsibly using AI to speed newsroom workflows: summarization, SEO, video upscaling, and synthetic voice. Mapped pipelines and limits; recommended training on Indian data and journalist workshops.</p>
+        <details>
+          <summary>More</summary>
+          <p>Tools explored: ChatGPT, DeepSeek, Gemini, Perplexity, Meta AI, Runway, Luma.ai, ElevenLabs. Key insight: AI can’t replace editors, but it can optimize repetitive tasks and enhance storytelling quality when adopted responsibly.</p>
+        </details>
+      </article>
+
+      <!-- 2) EMG-Controlled Robotic Hand -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>EMG-Controlled Robotic Hand</h3>
+        <p>Built in the YTS program at Plaksha University (2022). EMG sensors captured muscle signals → Arduino processed thresholds → servos actuated origami-inspired joints. Lightweight, low-cost prototype with proportional response.</p>
+        <details>
+          <summary>More</summary>
+          <p>Learned biosignal filtering, calibration, and human-machine interaction; potential for rehab/prosthetics translating intent into motion.</p>
+        </details>
+      </article>
+
+      <!-- 3) Fake-News Detector -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>Fake-News Detector</h3>
+        <p>LSTM model (TensorFlow) trained on labeled Kaggle data. Tokenization + embeddings feed sequence model to predict credibility with probability output, aiding verification and digital literacy.</p>
+        <details>
+          <summary>More</summary>
+          <p>LSTM’s gated architecture retains context; model trained to minimize cross-entropy. Strengthened skills in preprocessing and ethical AI for misinformation.</p>
+        </details>
+      </article>
+
+      <!-- 4) Desktop Gardening Assistant -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>Desktop Gardening Assistant</h3>
+        <p>Client app (Python Tkinter + SQLite) for plant care: per-plant notes, reminders (watering, fertilizing, pruning), photo logs, and seasonal tips. Improves consistency and organization for hobbyists.</p>
+        <details>
+          <summary>More</summary>
+          <p>Interview-driven design; local database avoids cloud dependency; lightweight UI for non-technical users.</p>
+        </details>
+      </article>
+
+      <!-- 5) Python Tools for News -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>Python Tools for News</h3>
+        <p>Three parts: Hacker News scraper (Requests + BeautifulSoup), sentiment analyzer (TextBlob), and LSTM fake-news checker. Automates curation, tone analysis, and verification.</p>
+        <details>
+          <summary>More</summary>
+          <p>Shows a pipeline from collection → interpretation → credibility assessment; emphasizes transparency and accuracy.</p>
+        </details>
+      </article>
+
+      <!-- 6) Smart-Home Automations -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>Smart-Home Automations</h3>
+        <p>Alexa routines + sensors for comfort and energy savings: motion-based lights, time-based thermostat, and custom voice commands. Demonstrates event-triggered, condition-action loops with safe overrides.</p>
+        <details>
+          <summary>More</summary>
+          <p>Hands-on with IoT protocols and user-centric automation; integrates natural-language control with environmental sensors.</p>
+        </details>
+      </article>
+
+      <!-- 7) (Spacer / future project or recap) -->
+      <article class="note">
+        <span class="pin" aria-hidden="true"></span>
+        <h3>Next Up</h3>
+        <p>Room for the next build: experiments with retrieval-augmented generation, or a lightweight newsroom CMS with AI helpers.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="container">
+    <small>© 2025 Atharv Teg Rattan</small>
+  </footer>
+</body>
+</html>

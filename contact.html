@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Atharv Teg Rattan</title>
+
+  <!-- Pico for base layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.min.css">
+
+  <style>
+    :root{
+      --navy:#0a1a2f;
+      --ink:#cfe3ff;      /* soft pastel blue */
+      --ink2:#a9ccff;     /* brighter pastel */
+      --white:#fff;
+    }
+
+    body{
+      background: var(--navy);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    nav.container-fluid a{ color: var(--ink2) !important; }
+    nav.container-fluid a:hover{ color: var(--white) !important; }
+
+    header.container{
+      padding-top: 2.2rem;
+      text-align: center;
+    }
+    header.container h1{
+      color: var(--white);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin: 0 0 .5rem;
+    }
+    header.container p{ color: var(--ink); margin: 0; }
+
+    .card{
+      max-width: 720px;
+      margin: 2rem auto 3rem;
+      padding: 1.6rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 12px 36px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .row{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: .8rem;
+      padding: .9rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px dashed rgba(255,255,255,.18);
+      margin-bottom: .9rem;
+    }
+    .row:last-child{ margin-bottom: 0; }
+
+    .label{ color: var(--white); font-weight: 600; margin-bottom: .2rem; }
+    .value a{ color: var(--ink2); text-decoration: underline; }
+    .value code{ color: var(--ink); background: transparent; padding: 0; }
+
+    .btn-outline{
+      display: inline-block;
+      padding: .55rem 1rem;
+      border: 2px solid var(--white);
+      color: var(--white);
+      background: transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+      white-space: nowrap;
+    }
+    .btn-outline:hover{
+      transform: scale(1.06);
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    footer{ margin-top: auto; text-align:center; padding: 1rem 0; color: var(--ink); }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="container-fluid">
+    <ul><li><strong style="color:#fff">Atharv</strong></li></ul>
+    <ul>
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="about.html">🔎About</a></li>
+      <li><a href="projects.html">🤖Projects</a></li>
+      <li><a href="art.html">🎨Art</a></li>
+      <li><a href="contact.html" aria-current="page">📞Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="container">
+    <h1>My Contacts📞!</h1>
+    <p>Prefer email or Instagram , both are below⬇️.</p>
+  </header>
+
+  <!-- CONTACT CARD -->
+  <section class="card">
+    <!-- Email -->
+    <div class="row">
+      <div>
+        <div class="label">Email</div>
+        <div class="value">
+          <a href="mailto:atharvteg@gmail.com">atharvteg@gmail.com</a>
+        </div>
+      </div>
+      <button class="btn-outline" id="copyEmail">Copy email</button>
+    </div>
+
+    <!-- Instagram -->
+    <div class="row">
+      <div>
+        <div class="label">Instagram</div>
+        <div class="value">
+          <a href="https://instagram.com/atharvteg" target="_blank" rel="noopener">@atharvteg</a>
+        </div>
+      </div>
+      <a class="btn-outline" href="https://instagram.com/atharvteg" target="_blank" rel="noopener">Open profile</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Atharv Teg Rattan
+  </footer>
+
+  <!-- Small JS: copy-to-clipboard -->
+  <script>
+    const btn = document.getElementById('copyEmail');
+    btn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('atharvteg@gmail.com');
+        btn.textContent = 'Copied!';
+        setTimeout(()=> btn.textContent = 'Copy email', 1500);
+      } catch {
+        alert('Email: atharvteg@gmail.com');
+      }
+    });
+  </script>
+</body>
+</html>

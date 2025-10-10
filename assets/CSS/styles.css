@@ -1,0 +1,17 @@
+body {
+
+}
+/* Theme tweaks */
+:root {
+  --brand: #1f4fff;          /* primary */
+  --brand-accent: #001833;   /* beige */
+}
+header.container { padding-top: 2rem; padding-bottom: 1rem; }
+h1, h2 { letter-spacing: 0.2px; }
+
+/* Profile block */
+.profile { align-items: center; gap: 2rem; }
+.avatar { width: 160px; height: 160px; object-fit: cover; border-radius: 20px; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+
+/* Lists look cleaner with a little spacing */
+section ul li { margin-bottom: .35rem; }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art Gallery · Atharv Teg Rattan</title>
+
+  <!-- Pico CSS for clean layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.min.css">
+
+  <!-- GLightbox CSS for image viewer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+  <style>
+    body {
+      background: #0a1a2f; /* dark navy */
+      color: #cfe3ff; /* soft pastel blue */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      text-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+      margin-top: 2rem;
+    }
+
+    nav.container-fluid a {
+      color: #a9ccff !important;
+    }
+
+    /* GALLERY GRID */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* IMAGE STYLING */
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;       /* crop neatly */
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+    }
+
+    footer {
+      text-align: center;
+      color: #a9ccff;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="container-fluid">
+    <ul><li><strong style="color:#fff;">Atharv</strong></li></ul>
+    <ul>
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="about.html">🔎About</a></li>
+      <li><a href="projects.html">🤖Projects</a></li>
+      <li><a href="art.html" aria-current="page">🎨Art</a></li>
+      <li><a href="contact.html">📞Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADING -->
+  <h1>My Art Gallery 🖌️</h1>
+
+  <!-- GALLERY -->
+  <main class="gallery">
+    <a href="assets/images/art/art1.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art1.jpg" alt="Art 1"></a>
+    <a href="assets/images/art/art2.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art2.jpg" alt="Art 2"></a>
+    <a href="assets/images/art/art3.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art3.jpg" alt="Art 3"></a>
+    <a href="assets/images/art/art4.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art4.jpg" alt="Art 4"></a>
+    <a href="assets/images/art/art5.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art5.jpg" alt="Art 5"></a>
+    <a href="assets/images/art/art6.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art6.jpg" alt="Art 6"></a>
+    <a href="assets/images/art/art7.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art7.jpg" alt="Art 7"></a>
+    <a href="assets/images/art/art8.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art8.jpg" alt="Art 8"></a>
+    <a href="assets/images/art/art9.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art9.jpg" alt="Art 9"></a>
+    <a href="assets/images/art/art10.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art10.jpg" alt="Art 10"></a>
+    <a href="assets/images/art/art11.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art11.jpg" alt="Art 11"></a>
+    <a href="assets/images/art/art12.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art12.jpg" alt="Art 12"></a>
+    <a href="assets/images/art/art13.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art13.jpg" alt="Art 13"></a>
+    <a href="assets/images/art/art14.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art14.jpg" alt="Art 14"></a>
+    <a href="assets/images/art/art15.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art15.jpg" alt="Art 15"></a>
+    <a href="assets/images/art/art16.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art16.jpg" alt="Art 16"></a>
+    <a href="assets/images/art/art17.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art17.jpg" alt="Art 17"></a>
+    <a href="assets/images/art/art18.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art18.jpg" alt="Art 18"></a>
+    <a href="assets/images/art/art19.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art19.jpg" alt="Art 19"></a>
+    <a href="assets/images/art/art20.jpg" class="glightbox" data-gallery="art"><img src="assets/images/art/art20.jpg" alt="Art 20"></a>
+  </main>
+
+  <footer>
+    © 2025 Atharv Teg Rattan
+  </footer>
+
+  <!-- GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox({ touchNavigation: true, loop: true });
+  </script>
+</body>
+</html>
